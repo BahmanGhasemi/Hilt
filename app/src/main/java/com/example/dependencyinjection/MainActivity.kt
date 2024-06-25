@@ -16,9 +16,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.dependencyinjection.ui.theme.DependencyInjectionTheme
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+//    @Inject
+//    lateinit var a: A
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -37,5 +42,10 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+    }
+
+    @Inject
+    fun start(a: A) {
+        a.doSome()
     }
 }
